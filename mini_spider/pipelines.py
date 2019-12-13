@@ -6,6 +6,11 @@
 # See: https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 
 
-class MiniSpiderPipeline(object):
-    def process_item(self, item, spider):
-        return item
+from urllib.parse import urlparse
+from pathlib import Path
+from scrapy.pipelines.files import FilesPipeline
+
+
+class MiniSpiderPipeline(FilesPipeline):
+    def file_path(self, request, response=None, info=None):
+        return Path(urlparse(request.url).path).name

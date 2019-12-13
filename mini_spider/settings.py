@@ -64,9 +64,11 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'mini_spider.pipelines.MiniSpiderPipeline': 300,
-#}
+ITEM_PIPELINES = {
+   'mini_spider.pipelines.MiniSpiderPipeline': 10
+}
+
+FILES_STORE = r'c:\tmp\minispider'
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
